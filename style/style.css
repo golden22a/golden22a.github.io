@@ -16,8 +16,33 @@ body{
     text-decoration:none;
     margin-right:2em;
     font-size:1.6em;
-    color:white;
+    color:white; 
+}
+h2{
+    text-align:center;
+    font-size:1.5em;
+    margin-bottom: 2em;
+}
+.row{
+    width:90%;
+    display: flex;
+    padding: 2em;
     
-   
+}
+div{
+width:100%;
+}
+#about {
+    text-align:center;
+    font-size:1.618em;
+}
+#about i{
+    font-size:2.5em;
+}
+#about h4{
+    font-size:1em;
+    margin:0.5em;
+}
+#about p{
     
 }
