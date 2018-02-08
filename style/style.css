@@ -3,6 +3,14 @@ body{
     height:100%;
     margin:0;
 }
+header .container{
+    color:white;
+    text-align: center;
+    padding: 16% 0 0 0;
+}
+#me{
+    color:red;
+}
 .container {
     width:80%;
     margin: 0 auto;
@@ -106,9 +114,24 @@ footer nav a {
     background-color: darkslategray;
 }
 footer{
-    background-color:
+    background-color:#653485;
+    color:white;
 }
 .error-message{
     color:red;
     display:none;
+}
+.star {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+    width:0.3em;
+    height:0.3em;
+}
+header{
+    background-color:black;
+height:100%;
+}
+.bio{
+    padding:2em;
 }
