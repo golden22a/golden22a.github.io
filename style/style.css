@@ -54,6 +54,7 @@ h2{
     padding: 2em;
     
 }
+
 div{
 width:100%;
 }
@@ -151,4 +152,10 @@ height:100%;
 }
 .bio{
     padding:2em;
+}
+.hidden{
+    opacity:0;
+}
+.row,#header h2 ,#project,#contact{
+    transition: all 2s ease
 }

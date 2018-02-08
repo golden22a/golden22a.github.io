@@ -3,6 +3,12 @@ const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
 
 const numBalls = 100;
 const balls = [];
+var dif;
+var about;
+var skills;
+var projects;
+var contact;
+var left;
 function backgroundEffect(){
 var header=$('header');
 var top=$("#top").offset();
@@ -46,6 +52,7 @@ function headerButton(){
     var i=$('header i');
     $(this).attr('class','hovered');
     $(i).attr('class','fas fa-arrow-down').hide();
+    $(i).fadeOut(300);
     $(i).fadeIn(300);
 });
     $('header button').on("mouseleave",function(){
@@ -59,12 +66,28 @@ function linkScroll(target){
 	    scrollTop: $(target).offset().top
 	  }, 600);
 }
-function displatContent(positon){
-    var about=$("#about");
-    var projects=$("#projects");
-    if(position==)
+function displatContent(position){
+   
+    if(position>=about.offset().top-100){
+        $("#about .row:first-of-type ").removeClass('hidden');
+         $("#about h2").removeClass('hidden');
+    }  if (position>=projects.offset().top-100){
+       
+         projects.removeClass('hidden');
+    }
+     if( position>=skills.offset().top-100){
+        skills.removeClass('hidden');
+    } if(position>=contact.offset().top-100){
+        contact.removeClass('hidden');
+    }
 }
+
 $(document).ready(function(){
+    about=$("#about");
+    skills=$("#about .row:nth-of-type(2)");
+    projects=$("#projects"); 
+    contact=$("#contact");
+    about.width=0;
    backgroundEffect();
 headerButton();
     $('#top a').on("click",function(e){
@@ -75,4 +98,8 @@ headerButton();
     $('.headerButton').on("click",function(e){
          linkScroll('#about');
     });
+$(document).scroll(function() {
+  var y = $(this).scrollTop();
+    displatContent(y);
+});
 });
