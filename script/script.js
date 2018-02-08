@@ -53,7 +53,26 @@ function headerButton(){
         $('header i').attr('class','fas fa-arrow-right');
 });
 }
+function linkScroll(target){
+	 
+	  $('body').animate({
+	    scrollTop: $(target).offset().top
+	  }, 600);
+}
+function displatContent(positon){
+    var about=$("#about");
+    var projects=$("#projects");
+    if(position==)
+}
 $(document).ready(function(){
    backgroundEffect();
 headerButton();
+    $('#top a').on("click",function(e){
+        e.preventDefault();
+        var thisTarget = $(this).attr('href');
+    linkScroll(thisTarget);
+             });
+    $('.headerButton').on("click",function(e){
+         linkScroll('#about');
+    });
 });
