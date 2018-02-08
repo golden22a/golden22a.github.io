@@ -11,6 +11,23 @@ header .container{
 #me{
     color:red;
 }
+.headerButton {
+    color:white;
+    background-color:#F85F36;
+    border:0;
+    height: 5%;
+    
+}
+header i {
+    margin-left:10px;
+    font-size:1.2em;
+}
+.hovered{
+    background-color:aqua;
+    color:white;
+border:0;
+    height: 5%;
+}
 .container {
     width:80%;
     margin: 0 auto;

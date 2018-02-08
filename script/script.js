@@ -1,11 +1,9 @@
 
-
-$(document).ready(function(){
-   // Some random colors
 const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
 
 const numBalls = 100;
 const balls = [];
+function backgroundEffect(){
 var header=$('header');
 var top=$("#top").offset();
 for (let i = 0; i < numBalls; i++) {
@@ -42,5 +40,20 @@ balls.forEach((el, i, ra) => {
     }
   );
 });
-
+}
+function headerButton(){
+    $('header button').on("mouseenter",function(){
+    var i=$('header i');
+    $(this).attr('class','hovered');
+    $(i).attr('class','fas fa-arrow-down').hide();
+    $(i).fadeIn(300);
+});
+    $('header button').on("mouseleave",function(){
+    $(this).attr('class','headerButton');
+        $('header i').attr('class','fas fa-arrow-right');
+});
+}
+$(document).ready(function(){
+   backgroundEffect();
+headerButton();
 });
