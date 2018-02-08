@@ -3,7 +3,7 @@ const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
 
 const numBalls = 100;
 const balls = [];
-var dif;
+var navbar;
 var about;
     var skills;
     var projects;
@@ -62,7 +62,7 @@ function headerButton(){
 function linkScroll(target){
 	 
 	  $('body').animate({
-	    scrollTop: $(target).offset().top
+	    scrollTop: $(target).offset().top-50
 	  }, 600);
 }
 function displatContent(position){
@@ -88,12 +88,23 @@ function skillBar(){
         $(this).width((length*0.8)+'%');
     });
 }
+function fixNav(position){
+    
+    if (position >= navbar.offset().top-30) {
+    navbar.addClass("fixed")
+  } else {
+    navbar.removeClass("fixed");
+  }
+
+}
 
 $(document).ready(function(){
+     
     about=$("#about");
     skills=$("#about .row:nth-of-type(2)");
     projects=$("#projects"); 
     contact=$("#contact");
+    navbar = $('.navbar');
     about.width=0;
    backgroundEffect();
 headerButton();
@@ -108,5 +119,9 @@ headerButton();
 $(document).scroll(function() {
   var y = $(this).scrollTop();
     displatContent(y);
+  fixNav(y);
 });
+
+
+
 });

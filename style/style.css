@@ -36,12 +36,16 @@ border:0;
     background-color: black;
     padding:0.3em 0;
     border-bottom: 0.3em solid green;
+    overflow: hidden;
+   
+    
 }
+
 #top a{
     text-decoration:none;
     margin-right:2em;
     font-size:1.6em;
-    color:white; 
+    color:white;
 }
 h2{
     text-align:center;
@@ -163,3 +167,13 @@ height:100%;
 .bar{
   transition: all 3s ease;  
 }
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+    z-index: 100;
+}
+.fixed + section{
+    padding-top: 10%;
+}
+
