@@ -1,9 +1,10 @@
 
-const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
-
+//const colors = ["#3CC157", "#2AA7FF", "#D2C1E8", "#FCBC0F", "#F85F36"];
+const colors = ["white", "#D2C1E8"];
 const numBalls = 100;
 const balls = [];
 var navbar;
+var navbarinit;
 var about;
     var skills;
     var projects;
@@ -15,6 +16,7 @@ for (let i = 0; i < numBalls; i++) {
   let ball = document.createElement("div");
   ball.classList.add("star");
   ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+
   ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
   ball.style.top = `${Math.floor(Math.random() * (75))}vh`;
   ball.style.transform = `scale(${Math.random()})`;
@@ -67,17 +69,17 @@ function linkScroll(target){
 }
 function displatContent(position){
    
-    if(position>=about.offset().top-100){
+    if(position>=about.offset().top/2){
         $("#about .row:first-of-type ").removeClass('hidden');
          $("#about h2").removeClass('hidden');
-    }  if (position>=projects.offset().top-100){
+    }  if (position>=projects.offset().top/1.5){
        
          projects.removeClass('hidden');
     }
-     if( position>=skills.offset().top-100){
+     if( position>=skills.offset().top/1.5){
         skills.removeClass('hidden');
          skillBar();
-    } if(position>=contact.offset().top-100){
+    } if(position>=contact.offset().top/1.5){
         contact.removeClass('hidden');
     }
 }
@@ -89,11 +91,12 @@ function skillBar(){
     });
 }
 function fixNav(position){
-    
-    if (position >= navbar.offset().top-30) {
-    navbar.addClass("fixed")
-  } else {
+    if (position >= navbarinit-50) {
+    navbar.addClass("fixed");
+
+  } else{
     navbar.removeClass("fixed");
+  
   }
 
 }
@@ -105,6 +108,7 @@ $(document).ready(function(){
     projects=$("#projects"); 
     contact=$("#contact");
     navbar = $('.navbar');
+    navbarinit=navbar.offset().top;
     about.width=0;
    backgroundEffect();
 headerButton();
