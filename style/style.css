@@ -76,7 +76,9 @@ width:100%;
     width:100%;
     margin-left:2em;
     display:flex;
-    padding:2%;
+    background-color: grey;
+    margin:2%;
+    border:0;
 }
 #about button{
     width:20%;
@@ -88,11 +90,10 @@ h3{
 margin:0 0 1em 0;
 }
 .bar{
-    width:80% ;
+    width:0% ;
   background-color: #4CAF50;
     text-align:center;
-  color: black;
-    
+  color: black;  
 }
 form{
     
@@ -157,5 +158,8 @@ height:100%;
     opacity:0;
 }
 .row,#header h2 ,#project,#contact{
-    transition: all 2s ease
+    transition: all 2s ease;
+}
+.bar{
+  transition: all 3s ease;  
 }

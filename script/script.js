@@ -5,10 +5,9 @@ const numBalls = 100;
 const balls = [];
 var dif;
 var about;
-var skills;
-var projects;
+    var skills;
+    var projects;
 var contact;
-var left;
 function backgroundEffect(){
 var header=$('header');
 var top=$("#top").offset();
@@ -77,9 +76,17 @@ function displatContent(position){
     }
      if( position>=skills.offset().top-100){
         skills.removeClass('hidden');
+         skillBar();
     } if(position>=contact.offset().top-100){
         contact.removeClass('hidden');
     }
+}
+function skillBar(){
+   var el=$('.bar');
+    el.each(function(){
+       var length=parseInt($(this).attr('data-skill'));
+        $(this).width((length*0.8)+'%');
+    });
 }
 
 $(document).ready(function(){
