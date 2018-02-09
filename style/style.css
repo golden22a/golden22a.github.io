@@ -153,7 +153,7 @@ footer{
     height:0.3em;
 }
 header{
-    background: linear-gradient(to bottom, #000000 60%, #808080 100%);  
+    background: black;  
 height:100%;
 letter-spacing: 0.2em;
     font-size: 1.1em;
@@ -176,7 +176,6 @@ letter-spacing: 0.2em;
   width: 100%;
     z-index:100;
     background-color:#334d4d;
-    color:red;
     
 
 }
@@ -190,5 +189,9 @@ letter-spacing: 0.2em;
 .selected{
 background-color:red;
 border: 1px solid red;
+    padding:0.15em;
     
 }
+#top a{
+    transition:all 2sec;
+}   

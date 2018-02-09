@@ -97,7 +97,7 @@ function skillBar(){
     });
 }
 function fixNav(position){
-    if (position >= navbarinit-50) {
+    if (position >= navbarinit) {
     navbar.addClass("fixed");
 
   } else{
