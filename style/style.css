@@ -2,6 +2,7 @@ body{
     width:100%;
     height:100%;
     margin:0;
+    font-family: 'Barlow Condensed';
 }
 header .container{
     color:white;
@@ -96,7 +97,7 @@ margin:0 0 1em 0;
 .bar{
     width:0% ;
   background-color: #4CAF50;
-    text-align:center;
+    text-align:right;
   color: black;  
 }
 form{
@@ -154,6 +155,8 @@ footer{
 header{
     background: linear-gradient(to bottom, #000000 60%, #808080 100%);  
 height:100%;
+letter-spacing: 0.2em;
+    font-size: 1.1em;
 }
 .bio{
     padding:2em;
@@ -171,8 +174,21 @@ height:100%;
   position: fixed;
   top: 0;
   width: 100%;
+    z-index:100;
+    background-color:#334d4d;
+    color:red;
+    
 
 }
+.navbar{
+    transition: all 2s;
+}
+
 .fixed + section {
     padding-top:2em;
+}
+.selected{
+background-color:red;
+border: 1px solid red;
+    
 }
