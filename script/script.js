@@ -1,4 +1,5 @@
-
+const images=['assets/images/project1.png','assets/images/project2.jpg','assets/images/project3.png']
+var imageindex=0;
 const colors = ["#3CC157", "#2AA7FF", "#D2C1E8", "#FCBC0F", "#F85F36"];
 //const colors = ["white", "#D2C1E8"];
 const numBalls = 200;
@@ -110,6 +111,24 @@ function selected(target){
     $('a').removeClass('selected');
     $(`[href='${target}']`).addClass('selected');
 }
+function moveImage(action){
+    if(action=='next'){
+          if(imageindex+1>images.length-1){
+              imageindex=0;
+          }else{
+              imageindex++; 
+          }
+    }    
+    else{
+        if(imageindex-1<0){
+            imageindex=images.length-1;
+        }else{
+           imageindex--; 
+        }
+    }
+$('.Project-container').css({backgroundImage:`url(${images[imageindex]})`});
+    
+}
 
 $(document).ready(function(){
      
@@ -135,7 +154,16 @@ $(document).scroll(function() {
     displatContent(y);
   fixNav(y);
 });
+    $('.Project-container button').hide();
 
-
+$('.Project-container').on("mouseenter",function(){
+   $('.Project-container button').fadeIn(500); 
+});
+    $('.Project-container').on("mouseleave",function(){
+   $('.Project-container button').hide(); 
+});
+$('.Project-container button').on("click",function(){
+   moveImage($(this).attr('data-action')); 
+});
 
 });
