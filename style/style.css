@@ -12,6 +12,10 @@ header .container{
 #me{
     color:red;
 }   
+.headerButtonContainer{
+    width:20%;
+    margin:0 auto;
+}
 .headerButton {
     text-align: center;
     color:white;
@@ -22,7 +26,7 @@ header .container{
     border-bottom-width:5px;
     border-color:orange;
     height: 10%;
-    width:15%;
+    width:100%;
     margin:0 auto;
     font-size:1.2em;
     
@@ -51,7 +55,7 @@ border:0;
     background-repeat: no-repeat;
      background-position: 50% 50%;
 background-size:  0% 100% ;
-    transition: background-size 1.2s linear;
+    transition: background-size 0.6s linear;
    
     
 }
@@ -71,7 +75,6 @@ h2{
     width:90%;
     display: flex;
     padding: 2em;
-    
 }
 
 div{
@@ -168,6 +171,7 @@ footer{
   opacity: 0.7;
     width:0.3em;
     height:0.3em;
+    
 }
 header{
     background: black;  
@@ -182,14 +186,15 @@ letter-spacing: 0.2em;
 .hidden{
     opacity:0;
 }
+.row.hidden:first-of-type{
+    transform: translateX(-2000px);
+}
 #contact.hidden{
     transform:scale(0.2,0.2);
 }
-/*
 .row,#header h2 ,#project,#contact{
-    transition: all 2s ease;
+    transition: all 1.5s ease;
 }
-*/
 .bar{
   transition: all 3s ease;  
 }
@@ -275,10 +280,10 @@ input[type=submit]{
      transform:translateY(0);
   }
 	40% {
-     transform:translateY(-20px);
+     transform:translateY(-15px);
   }
 	60% {
-        transform:translateY(-12px);
+        transform:translateY(-10px);
   }
 }
 @keyframes slideleft{
@@ -301,7 +306,8 @@ input[type=submit]{
 #about h2+span{
   height:1px;
     width:200px;
-    background-color: black;
+    
 }
+
 
 

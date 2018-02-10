@@ -29,12 +29,12 @@ for (var i = 0; i < numBalls; i++) {
 }
 
 // Keyframes
-balls.forEach((el, i, ra) => {
-  let to = {
+balls.forEach(function(el, i,) {
+  var to = {
     x: Math.random() * (i % 2 === 0 ? -11 : 11),
     y: Math.random() * 12
   };
-  let anim = el.animate(
+  var anim = el.animate(
     [
       { transform: "translate(0, 0)" },
       { transform: `translate(${to.x}rem, ${to.y}rem)` }
@@ -50,39 +50,41 @@ balls.forEach((el, i, ra) => {
 });
 }
 function headerButton(){
-    $('header button').on("mouseenter",function(){
-    $(this).animate({width:'5%',
+    $('.headerButtonContainer').on("mouseenter",function(){
+         
+         $('header button').text('');
+    $('header button').animate({width:'30%',
     borderTopLeftRadius: 100, 
     borderTopRightRadius: 100, 
     borderBottomLeftRadius: 100, 
     borderBottomRightRadius: 100,
    fontSize:'1.2em',
-    },1000,function(){  
-$(this).append('<i class="fas fa-arrow-down" style="color:red;padding-right:0.3em"></i>');  
+    },700,function(){  
+$('header button').append('<i class="fas fa-arrow-down" style="color:red;padding-right:0.4em"></i>');  
     });
-         
-         $(this).text('');
+        
     
 });
-    $('header button').on("mouseleave",function(){
-       $(this).animate({width:'15%',
+    $('.headerButtonContainer').on("mouseleave",function(){
+         $('.headerbutton i').remove();
+       $('header button').animate({width:'100%',
     borderTopLeftRadius: 0, 
     borderTopRightRadius: 0, 
     borderBottomLeftRadius: 0, 
     borderBottomRightRadius: 0,
    
-    },1000,function(){
+    },700,function(){
         
-           $(this).text('View My Work');
-    });;
-        $('.headerbutton i').remove();
+           $('header button').text('View My Work');
+    });
+       
      
 });
 }
 function linkScroll(target){
-	 
+	 var x=(target=="#precontact") ? 0 : 50;
 	  $('body').animate({
-	    scrollTop: $(target).offset().top-50
+	    scrollTop: $(target).offset().top-x
 	  }, 600);
 }
 function displatContent(position){
@@ -93,15 +95,15 @@ function displatContent(position){
         selected("#about");
     }else{
          selected("#header");
-    }  if (position>=projects.offset().top/1.5){
+    }  if (position>=projects.offset().top/1.2){
        
          projects.removeClass('hidden');
          selected("#projects");
     }
-      if( position>=skills.offset().top/1.5){
+      if( position>=skills.offset().top/1.2){
         skills.removeClass('hidden');
          skillBar();
-    }  if(position>=contact.offset().top/1.1){
+    }  if(position>=contact.offset().top/1.2){
         contact.removeClass('hidden');
          selected("#contact");
     } 
@@ -160,20 +162,21 @@ headerButton();
     $('#top a').on("click",function(e){
         e.preventDefault();
         var thisTarget = $(this).attr('href');
+        thisTarget = (thisTarget=='#contact' ? '#precontact' :thisTarget);
     linkScroll(thisTarget);
              });
     $('.headerButton').on("click",function(e){
-        $(this).animate({width:'15%',
+       $('.headerbutton i').remove();
+       $('header button').animate({width:'100%',
     borderTopLeftRadius: 0, 
     borderTopRightRadius: 0, 
     borderBottomLeftRadius: 0, 
     borderBottomRightRadius: 0,
    
-    },1000,function(){
+    },700,function(){
         
-           $(this).text('View My Work');
-    });;
-        $('.headerbutton i').remove();
+           $('header button').text('View My Work');
+    });
          linkScroll('#about');
     });
 $(document).scroll(function() {
