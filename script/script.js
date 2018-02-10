@@ -34,7 +34,6 @@ balls.forEach((el, i, ra) => {
     x: Math.random() * (i % 2 === 0 ? -11 : 11),
     y: Math.random() * 12
   };
-
   let anim = el.animate(
     [
       { transform: "translate(0, 0)" },
@@ -52,15 +51,32 @@ balls.forEach((el, i, ra) => {
 }
 function headerButton(){
     $('header button').on("mouseenter",function(){
-    var i=$('header i');
-    $(this).attr('class','hovered');
-    $(i).attr('class','fas fa-arrow-down').hide();
-    $(i).fadeOut(300);
-    $(i).fadeIn(300);
+    $(this).animate({width:'5%',
+    borderTopLeftRadius: 100, 
+    borderTopRightRadius: 100, 
+    borderBottomLeftRadius: 100, 
+    borderBottomRightRadius: 100,
+   fontSize:'1.2em',
+    },1000,function(){  
+$(this).append('<i class="fas fa-arrow-down" style="color:red;padding-right:0.3em"></i>');  
+    });
+         
+         $(this).text('');
+    
 });
     $('header button').on("mouseleave",function(){
-    $(this).attr('class','headerButton');
-        $('header i').attr('class','fas fa-arrow-right');
+       $(this).animate({width:'15%',
+    borderTopLeftRadius: 0, 
+    borderTopRightRadius: 0, 
+    borderBottomLeftRadius: 0, 
+    borderBottomRightRadius: 0,
+   
+    },1000,function(){
+        
+           $(this).text('View My Work');
+    });;
+        $('.headerbutton i').remove();
+     
 });
 }
 function linkScroll(target){
@@ -147,6 +163,17 @@ headerButton();
     linkScroll(thisTarget);
              });
     $('.headerButton').on("click",function(e){
+        $(this).animate({width:'15%',
+    borderTopLeftRadius: 0, 
+    borderTopRightRadius: 0, 
+    borderBottomLeftRadius: 0, 
+    borderBottomRightRadius: 0,
+   
+    },1000,function(){
+        
+           $(this).text('View My Work');
+    });;
+        $('.headerbutton i').remove();
          linkScroll('#about');
     });
 $(document).scroll(function() {
