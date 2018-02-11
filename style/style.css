@@ -326,11 +326,6 @@ input[type=submit]{
     } 
 }
 
-#about h2+span{
-  height:1px;
-    width:200px;
-    
-}
 .modal{
     display: none;
     position:fixed;
