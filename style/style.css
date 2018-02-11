@@ -362,6 +362,16 @@ input[type=submit]{
    width:100%;
     height: 100%;
 }
+.danger {
+    border-color:red;
+}   
+.active{
+    border-color:green;
+    
+}
+input,textarea{
+    outline: none;
+}
 
 
 

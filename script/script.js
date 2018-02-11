@@ -175,6 +175,46 @@ function imagetimer(){
         console.log(imageindex);
         moveImage(imageindex);
 }
+function valideform(){
+    $('form input,form textarea').on("focus",function(){
+       $(this).siblings('.error-message').hide();
+   $(this).attr('class','active'); 
+});
+     $('input, textarea').on("blur",function(){
+        if($(this).val()==""){
+           $(this).removeClass('active'); 
+        }
+         
+    });
+    $("form").on("submit",function(e){
+    var toSubmit=true;
+    e.preventDefault();
+    $('form input,form textarea').each(function(){
+    var $element=$(this);
+    if($element.val()==''){
+        $element.attr('class','danger');
+$element.siblings('.error-message').fadeIn(350);
+        toSubmit=false;
+        return;
+    }
+        if($element.attr('type')=='email'){
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var isValidEmailAddress = re.test($element.val());
+        if(!isValidEmailAddress){
+            $element.attr('class','danger');
+ $element.siblings('.error-message').fadeIn(350);
+            toSubmit=false;
+            return;
+        }
+        }
+        $element.removeClass('error');
+			$element.siblings('.error-message').hide();
+        });
+    if(toSubmit){
+        console.log("Form submitted");
+    }
+});
+}
 $(document).ready(function(){
      
     about=[$("#about")];
@@ -236,6 +276,7 @@ $(document).scroll(function() {
             modelopen=false;
         }
         });
+    valideform();
     
 
 
