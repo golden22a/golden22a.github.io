@@ -35,7 +35,7 @@ header .container{
 header i {
     margin-left:10px;
     font-size:1.2em;
-    animation: bounce 3s infinite;
+    animation: bounce 1.8s infinite;
 }
 .hovered{
     background-color:aqua;
@@ -230,29 +230,54 @@ border: 1px solid red;
     transition:all 2sec;
 } 
 .Project-container{
-   width:100%;
-    height:100%;
-    margin:0;
-    background-image:url("../assets/images/project1.png");
-     background-size: 80% 80%;
-    background-position:center;
-     background-repeat: no-repeat;
-     
+    height:50%;
+    width:50%;
+    margin:0 auto;
+    margin-bottom: 0px;
+     overflow: hidden;
+    
 }
-.Project-container button{
-    margin:20% 5%;
+.slides{
+    width:6000px;
+    height:100%;
+    display:block;
+    padding:0;
+    margin:0;
+    
+    
+}
+.slide{
+    float:left;
+    list-style-type: none;
+ 
+}
+.slide img{
+    width:50vw;
+    height: 50vh;
+    display: inline-block;
+}
+.project-footer{
+    margin:0 45%;
+    font-size:2em;
+    position: relative;
+}
+.project-footer i {
+    margin-right:0.4em;
+    cursor: pointer;
+}
+#projects button{
+    margin:20% 50%;
     font-size:3em;
     color:black;
     opacity: 0.5;
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
-    cursor:pointer;
     overflow: hidden;
     outline:none;
+    display: inline;
 }
-.Project-container button:last-child{
-    margin:20% 5%;
+#projects button:last-child{
     float:right;
 }
 form {

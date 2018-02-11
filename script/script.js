@@ -1,7 +1,6 @@
-const images=['assets/images/project1.png','assets/images/project2.jpg','assets/images/project3.png']
+const images=[0,50,100];
 var imageindex=0;
 const colors = ["#3CC157", "#2AA7FF", "#D2C1E8", "#FCBC0F", "#F85F36"];
-//const colors = ["white", "#D2C1E8"];
 const numBalls = 200;
 const balls = [];
 var navbar;
@@ -10,6 +9,7 @@ var about;
 var skills;
 var projects;
 var contact;
+var imageinterval;
 function backgroundEffect(){
 var header=$('header');
 var top=$("#top").offset();
@@ -34,6 +34,7 @@ balls.forEach(function(el, i,) {
     x: Math.random() * (i % 2 === 0 ? -11 : 11),
     y: Math.random() * 12
   };
+   
   var anim = el.animate(
     [
       { transform: "translate(0, 0)" },
@@ -46,6 +47,7 @@ balls.forEach(function(el, i,) {
       easing: "ease-in-out"
     }
   );
+        
 });
 }
 function headerButton(){
@@ -126,11 +128,11 @@ function skillBar(){
         var current=$(this);
        var length=parseInt(current.attr('data-skill'));
         if(length>0){
-        setInterval(progress,16.67); //60 fps
+     var interval=setInterval(progress,16.67); //60 fps
 //      $(this).width((length*0.8)+'%');
         function progress(){
         if(width>=length)
-            clearInterval();
+            clearInterval(interval);
         else{
             width++;
             
@@ -160,29 +162,17 @@ function selected(target){
     $(`[href='${target}']`).addClass('selected');
 }
 function moveImage(action){
-    if(action=='next'){
-          if(imageindex+1>images.length-1){
-              imageindex=0;
-          }else{
-              imageindex++; 
-          }
-    }    
-    else{
-        if(imageindex-1<0){
-            imageindex=images.length-1;
-        }else{
-           imageindex--; 
-        }
-    }
-$('.Project-container').css({backgroundImage:`url(${images[imageindex]})`});
     
+    imageindex=action;
+    $('.slides').animate({'margin-left':`-${images[action]}vw`});
+    $('.project-footer i').attr('class','far fa-circle');
+        $(`.project-footer i[data-slide=${action}]`).attr('class','fas fa-circle');
 }
 
 $(document).ready(function(){
      
     about=[$("#about")];
     about.push(true);
-    console.log(about[0]);
     skills=[$("#about .row:nth-of-type(2)")];
     skills.push(true);
     projects=[$("#projects")]; 
@@ -219,16 +209,17 @@ $(document).scroll(function() {
     displatContent(y);
   fixNav(y);
 });
-    $('.Project-container button').hide();
-
-$('.Project-container').on("mouseenter",function(){
-   $('.Project-container button').fadeIn(500); 
-});
-    $('.Project-container').on("mouseleave",function(){
-   $('.Project-container button').hide(); 
-});
-$('.Project-container button').on("click",function(){
-   moveImage($(this).attr('data-action')); 
-});
+    $('.project-footer i').on("click",function(){
+       moveImage($(this).attr('data-slide'));
+        
+    });
+    imageinterval=setInterval(function(){
+        imageindex++;
+         imageindex= (imageindex == images.length) ? 0:imageindex;
+    
+        console.log(imageindex);
+        moveImage(imageindex);
+            
+    },3000);
 
 });
