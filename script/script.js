@@ -1,6 +1,9 @@
 const images=[0,50,100];
 var modelopen=false;
 var imageindex=0;
+var testimentals=["Keep up the excellent work. I use web developer often. It really saves me time and effort. web developer is exactly what our business has been lacking.<br>- Robert W.",
+                 "We've used web developer for the last five years. Buy this now.<br> - Normand Y.","Web developer saved my business. Buy this now.<br> - Kraig Q.","Great job, I will definitely be ordering again! I will recommend you to my colleagues. Needless to say we are extremely satisfied with the results.<br>- Kacie Y.","You've saved our business! I have gotten at least 50 times the value from web developer.<br>- Judy D."];
+var testimentalindex=0;
 const colors = ["#3CC157", "#2AA7FF", "#D2C1E8", "#FCBC0F", "#F85F36"];
 const numBalls = 200;
 const balls = [];
@@ -82,6 +85,20 @@ $('header button').append('<i class="fas fa-arrow-down" style="color:red;padding
        
      
 });
+    $('.headerButton').on("click",function(e){
+       $('.headerbutton i').remove();
+       $('header button').animate({width:'100%',
+    borderTopLeftRadius: 0, 
+    borderTopRightRadius: 0, 
+    borderBottomLeftRadius: 0, 
+    borderBottomRightRadius: 0,
+   
+    },700,function(){
+        
+           $('header button').text('View My Work');
+    });
+         linkScroll('#about');
+    });
 }
 function linkScroll(target){
 	 var x=(target=="#precontact") ? 0 : 50;
@@ -172,7 +189,6 @@ function moveImage(action){
 function imagetimer(){
     imageindex++;
          imageindex= (imageindex == 3) ? 0:imageindex;
-        console.log(imageindex);
         moveImage(imageindex);
 }
 function valideform(){
@@ -215,6 +231,13 @@ $element.siblings('.error-message').fadeIn(350);
     }
 });
 }
+function filltestimentals(){
+    testimentalindex=(testimentalindex==testimentals.length) ? 0 : testimentalindex;
+    $('.testimonials-content').empty();
+    $('.testimonials-content').append(`<p>${testimentals[testimentalindex]}</p>`).hide();
+    $('.testimonials-content').fadeIn(1200);
+    testimentalindex++;
+}
 $(document).ready(function(){
      
     about=[$("#about")];
@@ -236,20 +259,7 @@ headerButton();
         thisTarget = (thisTarget=='#contact' ? '#precontact' :thisTarget);
     linkScroll(thisTarget);
              });
-    $('.headerButton').on("click",function(e){
-       $('.headerbutton i').remove();
-       $('header button').animate({width:'100%',
-    borderTopLeftRadius: 0, 
-    borderTopRightRadius: 0, 
-    borderBottomLeftRadius: 0, 
-    borderBottomRightRadius: 0,
-   
-    },700,function(){
-        
-           $('header button').text('View My Work');
-    });
-         linkScroll('#about');
-    });
+    
 $(document).scroll(function() {
   var y = $(this).scrollTop();
     displatContent(y);
@@ -277,7 +287,5 @@ $(document).scroll(function() {
         }
         });
     valideform();
-    
-
-
+var testimentalinterval=setInterval(filltestimentals,5000);
 });
