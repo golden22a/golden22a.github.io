@@ -1,6 +1,7 @@
 const images=[0,50,100];
 var modelopen=false;
 var imageindex=0;
+var navbaropen=false;
 var testimentals=["Keep up the excellent work. I use web developer often. It really saves me time and effort. web developer is exactly what our business has been lacking.<br>- Robert W.",
                  "We've used web developer for the last five years. Buy this now.<br> - Normand Y.","Web developer saved my business. Buy this now.<br> - Kraig Q.","Great job, I will definitely be ordering again! I will recommend you to my colleagues. Needless to say we are extremely satisfied with the results.<br>- Kacie Y.","You've saved our business! I have gotten at least 50 times the value from web developer.<br>- Judy D."];
 var testimentalindex=0;
@@ -117,9 +118,12 @@ function displatContent(position){
         selected("#about");
     }else{
          selected("#header");
+        $('#top a').removeClass('responsive');
+        navbaropen=false;
     }  if (position>=projects[0].offset().top/1.2){
        if(projects[1]){
          projects[0].removeClass('hidden');
+               imageinterval=setInterval(imagetimer,3000);
            projects[1]=false;
        }
         selected("#projects");
@@ -177,6 +181,8 @@ function fixNav(position){
 }
 function selected(target){
     $('a').removeClass('selected');
+    $('#top a').removeClass('responsive');
+    navbaropen=false;
     $(`[href='${target}']`).addClass('selected');
 }
 function moveImage(action){
@@ -254,11 +260,22 @@ $(document).ready(function(){
    backgroundEffect();
 headerButton();
     $('#top a').on("click",function(e){
-        e.preventDefault();
-        var thisTarget = $(this).attr('href');
+         var thisTarget = $(this).attr('href');
+         e.preventDefault();
+        if(thisTarget!='#'){
         thisTarget = (thisTarget=='#contact' ? '#precontact' :thisTarget);
     linkScroll(thisTarget);
-             });
+        }else{
+            if(!navbaropen){
+        $('#top a').addClass('responsive');
+               setTimeout(function(){ navbaropen=true;},500);
+                }else
+                    {
+                    $('#top a').removeClass('responsive'); 
+                       
+                    }
+        }
+        });
     
 $(document).scroll(function() {
   var y = $(this).scrollTop();
@@ -273,7 +290,6 @@ $(document).scroll(function() {
         
     });
     
-    imageinterval=setInterval(imagetimer,3000);
     $('.slide img').on("click",function(){
       
         $('.modal-content img').attr('src',$(this).attr('src'));
@@ -284,6 +300,11 @@ $(document).scroll(function() {
         if(modelopen){
             $('.modal').css({'display':'none'});
             modelopen=false;
+        }
+        if(navbaropen){
+            $('#top a').removeClass('responsive');
+        navbaropen=false;
+            
         }
         });
     valideform();
