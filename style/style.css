@@ -192,12 +192,15 @@ letter-spacing: 0.2em;
 #contact.hidden{
     transform:scale(0.2,0.2);
 }
-.row,#header h2 ,#project,#contact{
-    transition: all 1.5s ease;
+.row,#project,#contact{
+    transition: opacity 1.5s ease;
+    transition: transform 1.5s ease;
 }
+/*
 .bar{
   transition: all 3s ease;  
 }
+*/
 .fixed {
   position: fixed;
   top: 0;

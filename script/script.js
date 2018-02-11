@@ -7,8 +7,8 @@ const balls = [];
 var navbar;
 var navbarinit;
 var about;
-    var skills;
-    var projects;
+var skills;
+var projects;
 var contact;
 function backgroundEffect(){
 var header=$('header');
@@ -89,32 +89,63 @@ function linkScroll(target){
 }
 function displatContent(position){
    
-    if(position>=about.offset().top/1.2){
+    if(position>=about[0].offset().top/1.2){
+        if(about[1]){
         $("#about .row:first-of-type ").removeClass('hidden');
          $("#about h2").removeClass('hidden');
+        about[1]=false;
+        }
         selected("#about");
     }else{
          selected("#header");
-    }  if (position>=projects.offset().top/1.2){
-       
-         projects.removeClass('hidden');
-         selected("#projects");
+    }  if (position>=projects[0].offset().top/1.2){
+       if(projects[1]){
+         projects[0].removeClass('hidden');
+           projects[1]=false;
+       }
+        selected("#projects");
     }
-      if( position>=skills.offset().top/1.2){
-        skills.removeClass('hidden');
-         skillBar();
-    }  if(position>=contact.offset().top/1.2){
-        contact.removeClass('hidden');
+      if( position>=skills[0].offset().top/1.2){
+          if(skills[1]){
+        skills[0].removeClass('hidden');
+            skillBar();  
+         skills[1]=false;
+          }
+         
+    }  if(position>=contact[0].offset().top/1.2){
+        if(contact[1]){
+        contact[0].removeClass('hidden');
+            contact[1]=false;
+        }
          selected("#contact");
     } 
 }
 function skillBar(){
    var el=$('.bar');
     el.each(function(){
-       var length=parseInt($(this).attr('data-skill'));
-        $(this).width((length*0.8)+'%');
+        var width=10;
+        var current=$(this);
+       var length=parseInt(current.attr('data-skill'));
+        if(length>0){
+        setInterval(progress,16.67); //60 fps
+//      $(this).width((length*0.8)+'%');
+        function progress(){
+        if(width>=length)
+            clearInterval();
+        else{
+            width++;
+            
+            current.width((width*0.8)+'%');
+           current.text((width)+'%');
+            
+        }
+
+}  
+
+        }
     });
 }
+
 function fixNav(position){
     if (position >= navbarinit) {
     navbar.addClass("fixed");
@@ -150,10 +181,15 @@ $('.Project-container').css({backgroundImage:`url(${images[imageindex]})`});
 
 $(document).ready(function(){
      
-    about=$("#about");
-    skills=$("#about .row:nth-of-type(2)");
-    projects=$("#projects"); 
-    contact=$("#contact");
+    about=[$("#about")];
+    about.push(true);
+    console.log(about[0]);
+    skills=[$("#about .row:nth-of-type(2)")];
+    skills.push(true);
+    projects=[$("#projects")]; 
+    projects.push(true);
+    contact=[$("#contact")];
+    contact.push(true);
     navbar = $('.navbar');
     navbarinit=navbar.offset().top;
     about.width=0;
