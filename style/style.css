@@ -100,23 +100,28 @@ width:100%;
     width:100%;
     margin-left:2em;
     display:flex;
-    background-color: grey;
+    background-color: #a3a3c2;
     margin:2%;
     border:0;
 }
 
 #about button{
     width:20%;
-    background-color:aquamarine;
+    background-color:#004d4d;
     height:5%;
     border:0;
+    color:white;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 h3{
 margin:0 0 1em 0;
 }
 .bar{
     width:0% ;
-  background-color: #4CAF50;
+  background-color: #009999;
     text-align:right;
   color: black;  
 }
@@ -190,12 +195,12 @@ letter-spacing: 0.2em;
     transform: translateX(-2000px);
 }
 #contact.hidden{
-    transform:scale(0.2,0.2);
+    transform:scale(0.1,0.2);
 }
-.row,#project,#contact{
-    transition: opacity 1.5s ease;
-    transition: transform 1.5s ease;
+.row,#projects,#contact{
+    transition: all 1.2s ease;
 }
+
 /*
 .bar{
   transition: all 3s ease;  

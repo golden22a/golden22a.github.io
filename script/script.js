@@ -42,7 +42,6 @@ balls.forEach(function(el, i,) {
     {
       duration: (Math.random() + 1) * 2000, // random duration
       direction: "alternate",
-      fill: "both",
       iterations: Infinity,
       easing: "ease-in-out"
     }
