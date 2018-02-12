@@ -1,5 +1,7 @@
 # About me website
 
+---
+
 ## Technologie used
 
 -HTML5
@@ -10,7 +12,7 @@
 
 -mailchimp Api for email sending
 
-
+---
 ## Processes
 
 -I started by doing a wayframe on how my website would look
@@ -34,6 +36,7 @@
 
 -At the End i started to worry about the mobile version
 
+---
 
 ## Unsolved Problems
 
@@ -43,7 +46,7 @@
 
 -Need to work a lot more on the responsive version .
 
-
+---
 ## Biggest wins
 
 -after finishing the background effect i wanted to make a small animation on the button , i added  a hover trigger on it that turns it to a circle and because the width was reducing as it transforme to a cercle the mouse pointer made it go through an infinite loop where it goes from button to circle and from circle to button .To fix that i added the trigger on the parent container
