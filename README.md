@@ -1,13 +1,13 @@
-#About me website
+# About me website
 
-##Technologie used
+## Technologie used
 
 -HTML5
 -CSS3 and CSS3 animations
 -Jquery for dom manipulation
 -mailchimp Api for email sending
 
-##Processes
+## Processes
 
 -I started by doing a wayframe on how my website would look
 -Did some google search on existings portfolios 
@@ -20,7 +20,7 @@
 -Fixed any bugs in the Desktop version
 -at the End i started to worry about the mobile version
 
-##Unsolved Problems
+## Unsolved Problems
 -Mail api not fully working i need to register the domain on the api website
 -Background effect  width goes a bit more then the VW
 -Need to work a lot more on the responsive version .
