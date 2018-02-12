@@ -61,3 +61,23 @@
 
 -Synchonosing the animnations.
 
+---
+## Code Snippet
+
+### navbar animation
+
+* https://codepen.io/golden22a/pen/OQmoyE 
+### Background effect
+
+* https://codepen.io/golden22a/pen/qxmMqR
+
+### Button to circle 
+
+#### this snippet is not compleate couldn't link the arrow from font awesome but I added the animation keyframe.   
+
+* https://codepen.io/golden22a/pen/VQbGPM
+
+### Loading bar
+
+* https://codepen.io/golden22a/pen/NyjLQW
+
