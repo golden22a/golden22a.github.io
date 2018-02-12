@@ -288,10 +288,12 @@ headerButton(); //initialising lsitener for header button control
         }else{
             if(!navbaropen){
         $('#top a').addClass('responsive');
+        $('#top').addClass('high');
                setTimeout(function(){ navbaropen=true;},500);
                 }else
                     {
                     $('#top a').removeClass('responsive'); 
+                        $('#top').removeClass('high');
                        
                     }
         }
@@ -324,6 +326,7 @@ $(document).scroll(function() {
         }
         if(navbaropen){
             $('#top a').removeClass('responsive');
+              $('#top').removeClass('high');
         navbaropen=false;
             
         }
