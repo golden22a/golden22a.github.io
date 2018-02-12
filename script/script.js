@@ -225,8 +225,10 @@ function valideform(){
          
     });
     $("form").on("submit",function(e){
+        
     var toSubmit=true;
     e.preventDefault();
+        var email=$(this).serialize().split('&');
     $('form input,form textarea').each(function(){
     var $element=$(this);
     if($element.val()==''){
@@ -249,7 +251,29 @@ $element.siblings('.error-message').fadeIn(350);
 			$element.siblings('.error-message').hide();
         });
     if(toSubmit){
-        console.log("Form submitted");
+       $.ajax({
+  type: 'POST',
+  url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+  data: {
+    'key': '7jNbUI2oJENL3bvEO0GZuw',
+    'message': {
+      'from_email': `${message[1]}`,
+      'to': [
+          {
+            'email': 'khaldiabdelhalim1894@gmail.com',
+            'type': 'to'
+          },
+          
+        ],
+      'autotext': 'true',
+      'subject': `${message[0]} object:${message[2]} `,
+      'html': `${message[3]} `
+    }
+  }
+ }).done(function(response) {
+   console.log("Form submitted");
+ });
+        
     }
 });
 }
