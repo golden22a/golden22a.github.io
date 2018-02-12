@@ -1,10 +1,13 @@
-const images=[0,50,100];
-var modelopen=false;
-var imageindex=0;
-var navbaropen=false;
-var testimentals=["Keep up the excellent work. I use web developer often. It really saves me time and effort. web developer is exactly what our business has been lacking.<br>- Robert W.",
-                 "We've used web developer for the last five years. Buy this now.<br> - Normand Y.","Web developer saved my business. Buy this now.<br> - Kraig Q.","Great job, I will definitely be ordering again! I will recommend you to my colleagues. Needless to say we are extremely satisfied with the results.<br>- Kacie Y.","You've saved our business! I have gotten at least 50 times the value from web developer.<br>- Judy D."];
-var testimentalindex=0;
+const images = [0,50,100] ; //position of every image
+var modelopen = false ; // to verify if modal is open
+var imageindex = 0 ; // index for images
+var navbaropen = false ; // to verify if navbar is open for responsive version
+//testimonials //
+var testimoialss = ["Keep up the excellent work. I use web developer often. It really saves me time and effort. web developer is exactly what our business has been lacking.<br>- Robert W.",
+                 "We've used web developer for the last five years. Buy this now.<br> - Normand Y.","Web developer saved my business. Buy this now.<br> - Kraig Q.","Great job, I will definitely be ordering again! I will recommend you to my colleagues. Needless to say we are extremely satisfied with the results.<br>- Kacie Y.","You've saved our business! I have gotten at least 50 times the value from web developer.<br>- Judy D."] ;
+var testimoialsindex = 0 ; //testimonials index
+
+// setting for background effetcs //
 const colors = ["#3CC157", "#2AA7FF", "#D2C1E8", "#FCBC0F", "#F85F36"];
 const numBalls = 200;
 const balls = [];
@@ -15,9 +18,10 @@ var skills;
 var projects;
 var contact;
 var imageinterval;
+var content; // testimonials content
 function backgroundEffect(){
-var header=$('header');
-var top=$("#top").offset();
+var header=$('header'); //getting header location
+    //creating deffirent balls with deffrent scaling and sizing
 for (var i = 0; i < numBalls; i++) {
   var ball = document.createElement("div");
   ball.classList.add("star");
@@ -25,7 +29,7 @@ for (var i = 0; i < numBalls; i++) {
 
   ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
   ball.style.top = `${Math.floor(Math.random() * (75))}vh`;
-  ball.style.transform = `scale(${Math.random()})`;
+  ball.style.transform = `scale(${Math.random()})`; //random scales so a ball doesnt stick in another
    ball.style.height = `${Math.random()*0.5}em`;
      ball.style.width = ball.style.height;
   
@@ -36,14 +40,14 @@ for (var i = 0; i < numBalls; i++) {
 // Keyframes
 balls.forEach(function(el, i,) {
   var to = {
-    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+    x: Math.random() * (i % 2 === 0 ? -11 : 11), //go right or left depending on index
     y: Math.random() * 12
   };
    
   var anim = el.animate(
     [
-      { transform: "translate(0, 0)" },
-      { transform: `translate(${to.x}rem, ${to.y}rem)` }
+      { transform: "translate(0, 0)" }, //start
+      { transform: `translate(${to.x}rem, ${to.y}rem)` } //end
     ],
     {
       duration: (Math.random() + 1) * 2000, // random duration
@@ -56,24 +60,26 @@ balls.forEach(function(el, i,) {
 });
 }
 function headerButton(){
-    $('.headerButtonContainer').on("mouseenter",function(){
-         
-         $('header button').text('');
-    $('header button').animate({width:'30%',
+    var header =  $('.headerButtonContainer'); // normal
+    var header1 = $('.headerButtonContainer1'); // responsive
+    header.on("mouseenter",function(){
+         //enpty and animatie button
+         header.find('button').text('');
+    header.find('button').animate({width:'30%',
     borderTopLeftRadius: 100, 
     borderTopRightRadius: 100, 
     borderBottomLeftRadius: 100, 
     borderBottomRightRadius: 100,
    fontSize:'1.2em',
     },700,function(){  
-$('header button').append('<i class="fas fa-arrow-down" style="color:red;padding-right:0.4em"></i>');  
+header.find('button').append('<i class="fas fa-arrow-down" style="color:red;padding-right:0.4em"></i>');  //add the arrow at the end of animation
     });
         
     
 });
-    $('.headerButtonContainer').on("mouseleave",function(){
-         $('.headerbutton i').remove();
-       $('header button').animate({width:'100%',
+    header.on("mouseleave",function(){
+         header.find('i').remove();//remove arrow
+      header.find('button').animate({width:'100%',
     borderTopLeftRadius: 0, 
     borderTopRightRadius: 0, 
     borderBottomLeftRadius: 0, 
@@ -81,14 +87,14 @@ $('header button').append('<i class="fas fa-arrow-down" style="color:red;padding
    
     },700,function(){
         
-           $('header button').text('View My Work');
+          header.find('button').text('View My Work');//add text at the end of animation
     });
        
      
 });
-    $('.headerButton').on("click",function(e){
-       $('.headerbutton i').remove();
-       $('header button').animate({width:'100%',
+    header.find('button').on("click",function(e){
+      header.find('i').remove();
+     header.find('button').animate({width:'100%',
     borderTopLeftRadius: 0, 
     borderTopRightRadius: 0, 
     borderBottomLeftRadius: 0, 
@@ -96,68 +102,74 @@ $('header button').append('<i class="fas fa-arrow-down" style="color:red;padding
    
     },700,function(){
         
-           $('header button').text('View My Work');
+           header.find('button').text('View My Work');
     });
-         linkScroll('#about');
+         linkScroll('#about'); // scroll to the about section
+    });
+
+    header1.find('button').on("click",function(e){
+        linkScroll('#about');
     });
 }
 function linkScroll(target){
-	 var x=(target=="#precontact") ? 0 : 50;
+    //scroll to the target
+	 var x = (target=="#precontact") ? 0 : 50; //change the scroll stop incase of link leading to the form section
 	  $('body').animate({
 	    scrollTop: $(target).offset().top-x
 	  }, 600);
 }
-function displatContent(position){
-   
-    if(position>=about[0].offset().top/1.2){
+function displayContent(position){
+   //display content of page depending on scroll location
+    // using a control variable to display only once for each section
+    if(position >= about[0].offset().top/1.2){
         if(about[1]){
         $("#about .row:first-of-type ").removeClass('hidden');
          $("#about h2").removeClass('hidden');
-        about[1]=false;
+        about[1] = false;
         }
         selected("#about");
     }else{
          selected("#header");
         $('#top a').removeClass('responsive');
-        navbaropen=false;
-    }  if (position>=projects[0].offset().top/1.2){
+        navbaropen = false;
+    }  if (position >= projects[0].offset().top/1.2){
        if(projects[1]){
          projects[0].removeClass('hidden');
                imageinterval=setInterval(imagetimer,3000);
-           projects[1]=false;
+           projects[1] = false;
        }
         selected("#projects");
     }
-      if( position>=skills[0].offset().top/1.2){
+      if( position >= skills[0].offset().top/1.2){
           if(skills[1]){
         skills[0].removeClass('hidden');
             skillBar();  
-         skills[1]=false;
+         skills[1] = false;
           }
          
-    }  if(position>=contact[0].offset().top/1.2){
+    }  if(position >= contact[0].offset().top/1.2){
         if(contact[1]){
         contact[0].removeClass('hidden');
-            contact[1]=false;
+            contact[1] = false;
         }
          selected("#contact");
     } 
 }
+//bar load 
 function skillBar(){
-   var el=$('.bar');
+   var el = $('.bar');
     el.each(function(){
         var width=10;
         var current=$(this);
        var length=parseInt(current.attr('data-skill'));
         if(length>0){
      var interval=setInterval(progress,16.67); //60 fps
-//      $(this).width((length*0.8)+'%');
         function progress(){
         if(width>=length)
-            clearInterval(interval);
+            clearInterval(interval); //stop interval
         else{
             width++;
-            
+            //chaming text while filling skill bar
             current.width((width*0.8)+'%');
            current.text((width)+'%');
             
@@ -168,7 +180,7 @@ function skillBar(){
         }
     });
 }
-
+//fix top navigation bar
 function fixNav(position){
     if (position >= navbarinit) {
     navbar.addClass("fixed");
@@ -180,13 +192,14 @@ function fixNav(position){
 
 }
 function selected(target){
-    $('a').removeClass('selected');
-    $('#top a').removeClass('responsive');
-    navbaropen=false;
-    $(`[href='${target}']`).addClass('selected');
+    $('a').removeClass('selected'); //remove class selected from all the links
+    $('#top a').removeClass('responsive');// close rsponsive bar
+    navbaropen = false;// update control variable to false
+    $(`[href='${target}']`).addClass('selected');//add class selected to the link clicked
 }
+//for project slider
 function moveImage(action){
-    imageindex=action;
+    imageindex = action; //update the index
     $('.slides').animate({'margin-left':`-${images[action]}vw`});
     $('.project-footer i').attr('class','far fa-circle');
         $(`.project-footer i[data-slide=${action}]`).attr('class','fas fa-circle');
@@ -194,9 +207,10 @@ function moveImage(action){
 }
 function imagetimer(){
     imageindex++;
-         imageindex= (imageindex == 3) ? 0:imageindex;
-        moveImage(imageindex);
+    imageindex= (imageindex == 3) ? 0:imageindex;
+    moveImage(imageindex);
 }
+//email validation
 function valideform(){
     $('form input,form textarea').on("focus",function(){
        $(this).siblings('.error-message').hide();
@@ -225,7 +239,7 @@ $element.siblings('.error-message').fadeIn(350);
         if(!isValidEmailAddress){
             $element.attr('class','danger');
  $element.siblings('.error-message').fadeIn(350);
-            toSubmit=false;
+            toSubmit = false;
             return;
         }
         }
@@ -237,28 +251,34 @@ $element.siblings('.error-message').fadeIn(350);
     }
 });
 }
-function filltestimentals(){
-    testimentalindex=(testimentalindex==testimentals.length) ? 0 : testimentalindex;
-    $('.testimonials-content').empty();
-    $('.testimonials-content').append(`<p>${testimentals[testimentalindex]}</p>`).hide();
-    $('.testimonials-content').fadeIn(1200);
-    testimentalindex++;
+//for testimonials slider
+function filltestimoialss(){
+    
+    testimoialsindex = (testimoialsindex==testimoialss.length) ? 0 : testimoialsindex; //to reset if arrived at array length 
+   content.empty();
+    content.append(`<p>${testimoialss[testimoialsindex]}</p>`).hide();
+    content.fadeIn(1200);
+    testimoialsindex++;
 }
 $(document).ready(function(){
-     
-    about=[$("#about")];
+     content = $('.testimonials-content');
+   // each section is an array with element and a boolean that we will use to make sure each section is displayed only once
+    about = [$("#about")];
     about.push(true);
-    skills=[$("#about .row:nth-of-type(2)")];
+    skills = [$("#about .row:nth-of-type(2)")];
     skills.push(true);
-    projects=[$("#projects")]; 
+    projects = [$("#projects")]; 
     projects.push(true);
-    contact=[$("#contact")];
+    contact = [$("#contact")];
     contact.push(true);
+    ///
     navbar = $('.navbar');
-    navbarinit=navbar.offset().top;
-    about.width=0;
-   backgroundEffect();
-headerButton();
+    navbarinit = navbar.offset().top;//get initial position 
+   backgroundEffect(); //making the backgournd effect
+headerButton(); //initialising lsitener for header button control
+    valideform();//initialising linsten for form valdiaiton
+    
+    //navbar click interaction
     $('#top a').on("click",function(e){
          var thisTarget = $(this).attr('href');
          e.preventDefault();
@@ -276,12 +296,13 @@ headerButton();
                     }
         }
         });
-    
+    //scroll listener
 $(document).scroll(function() {
   var y = $(this).scrollTop();
-    displatContent(y);
-  fixNav(y);
+    displayContent(y); // to display content
+  fixNav(y); // to fix the top navbar 
 });
+    //to change the project slide when clicking on the small circles
     $('.project-footer i').on("click",function(){
         clearInterval(imageinterval);
        moveImage($(this).attr('data-slide'));
@@ -289,12 +310,12 @@ $(document).scroll(function() {
         imageinterval=setInterval(imagetimer,3000);
         
     });
-    
+    //modal
     $('.slide img').on("click",function(){
       
         $('.modal-content img').attr('src',$(this).attr('src'));
         $('.modal').css({'display':'block'});
-        setTimeout(function(){ modelopen=true;},1000);
+        setTimeout(function(){ modelopen=true;},1000);//wait 1s to adjust control variable so it wont be a  conflict the widnow listener
     });
     $(window).on('click',function(){
         if(modelopen){
@@ -307,6 +328,6 @@ $(document).scroll(function() {
             
         }
         });
-    valideform();
-var testimentalinterval=setInterval(filltestimentals,5000);
+    
+var testimoialsinterval=setInterval(filltestimoialss,5000);
 });
