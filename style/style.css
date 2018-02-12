@@ -294,10 +294,6 @@ footer nav a {
 }
 
 
-#contact.hidden{
-    transform:scale(0.1,0.2);
-}
-
 .focused{
     border:2px solid green;
     
@@ -347,6 +343,27 @@ input[type=submit]{
     } 
 }
 
+@keyframes bounceform{
+   0% {
+     transform:scale(0.5,0.5);
+  }
+  
+	40% {
+     transform:scale(1.4,1.4);
+  }
+	60% {
+        transform:scale(0.8,0.8);
+  }
+       0% {
+     transform:scale(1.2,1.2);
+  }
+    100%{
+        transform:scale(1,1);
+    }
+} 
+#contact.hidden{
+    transform: scale(0.2,0.2);
+}
 
 
 .hamburger{

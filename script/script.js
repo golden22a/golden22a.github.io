@@ -1,3 +1,4 @@
+
 const images = [0,50,100] ; //position of every image
 var modelopen = false ; // to verify if modal is open
 var imageindex = 0 ; // index for images
@@ -131,6 +132,7 @@ function displayContent(position){
     }else{
          selected("#header");
         $('#top a').removeClass('responsive');
+          $('#top').removeClass('high');
         navbaropen = false;
     }  if (position >= projects[0].offset().top/1.2){
        if(projects[1]){
@@ -287,14 +289,13 @@ headerButton(); //initialising lsitener for header button control
     linkScroll(thisTarget);
         }else{
             if(!navbaropen){
-        $('#top a').addClass('responsive');
-        $('#top').addClass('high');
+        $('#top.fixed a').addClass('responsive');
+        $('#top.fixed').addClass('high');
                setTimeout(function(){ navbaropen=true;},500);
                 }else
                     {
                     $('#top a').removeClass('responsive'); 
                         $('#top').removeClass('high');
-                       
                     }
         }
         });
