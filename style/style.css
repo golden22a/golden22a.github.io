@@ -192,7 +192,7 @@ letter-spacing: 0.2em;
     opacity:0;
 }
 .row.hidden:first-of-type{
-    transform: translateX(-2000px);
+    transform: translateX(-100vw);
 }
 #contact.hidden{
     transform:scale(0.1,0.2);
@@ -238,7 +238,7 @@ border: 1px solid red;
     
 }
 .slides{
-    width:300vw;
+    width:150vw;
     height:100%;
     display:block;
     padding:0;
@@ -379,6 +379,21 @@ input,textarea{
     .testimonials p{
         font-size: 0.6em;
     }
+    #about .row{
+        margin-left:-5%; 
+    }
+    .bio{
+        margin-left:-20%;
+        text-align: center;
+    
+    }
+    .skills{
+        margin-left:-10%;
+    }
+    .project-footer{
+        width:30%;
+    margin:0 auto;
+    }
     
 }
 @media screen and (max-width:740px){
@@ -417,6 +432,17 @@ input,textarea{
         border: 1px solid red;
         background-color: red;
     }
+    #contact input,#contact textarea,.form-container{
+        width:90%;
+        
+    }
+    input[type=submit]{
+    color:red;
+    height:4em;
+    margin-left:2%;
+}
+    
+    
     
 }
 
