@@ -1,15 +1,37 @@
+// Great use of comments!
 
+// This constant can be named better: imagePositions
 const images = [0,50,100] ; //position of every image
+
+// As a boolean this variable name should be a question: isModalOpen
 var modelopen = false ; // to verify if modal is open
+
+// Not clear what this one means from reading the name.
 var imageindex = 0 ; // index for images
+
+// Better name: isNavbarOpen
 var navbaropen = false ; // to verify if navbar is open for responsive version
+
 //testimonials //
-var testimoialss = ["Keep up the excellent work. I use web developer often. It really saves me time and effort. web developer is exactly what our business has been lacking.<br>- Robert W.",
-                 "We've used web developer for the last five years. Buy this now.<br> - Normand Y.","Web developer saved my business. Buy this now.<br> - Kraig Q.","Great job, I will definitely be ordering again! I will recommend you to my colleagues. Needless to say we are extremely satisfied with the results.<br>- Kacie Y.","You've saved our business! I have gotten at least 50 times the value from web developer.<br>- Judy D."] ;
+// Use better spacing to make this more readable and watch your spelling. It may seem insignificant but it's absolutely not!
+var testimoialss = [
+    "Keep up the excellent work. I use web developer often. It really saves me time and effort. web developer is exactly what our business has been lacking.<br>- Robert W.",
+    "We've used web developer for the last five years. Buy this now.<br> - Normand Y.",
+    "Web developer saved my business. Buy this now.<br> - Kraig Q.",
+    "Great job, I will definitely be ordering again! I will recommend you to my colleagues. Needless to say we are extremely satisfied with the results.<br>- Kacie Y.",
+    "You've saved our business! I have gotten at least 50 times the value from web developer.<br>- Judy D."
+];
+
+
+// Again, index of what? Not clear at all from reading it what this does. Don't make your fellow devs hunt for the meaning.
 var testimoialsindex = 0 ; //testimonials index
 
 // setting for background effetcs //
+// Better name: bgColors
 const colors = ["#3CC157", "#2AA7FF", "#D2C1E8", "#FCBC0F", "#F85F36"];
+
+// ...and this whole list has the same naming problem. You get the point so I won't point this out futher :)
+// A comment giving a summary of what these variables mean could also be a good approach.
 const numBalls = 200;
 const balls = [];
 var navbar;
@@ -67,6 +89,7 @@ function headerButton(){
          //enpty and animatie button
          header.find('button').text('');
     header.find('button').animate({width:'30%',
+      // Why not just use borderRadius once instead of each border 4 times?
     borderTopLeftRadius: 100, 
     borderTopRightRadius: 100, 
     borderBottomLeftRadius: 100, 
@@ -119,6 +142,7 @@ function linkScroll(target){
 	    scrollTop: $(target).offset().top-x
 	  }, 600);
 }
+
 function displayContent(position){
    //display content of page depending on scroll location
     // using a control variable to display only once for each section
@@ -238,6 +262,7 @@ $element.siblings('.error-message').fadeIn(350);
         return;
     }
         if($element.attr('type')=='email'){
+          // This regex appears to have some repetition with the sections before and after the @ symbol. Worth a second look: https://regexr.com/3kq2q
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             var isValidEmailAddress = re.test($element.val());
         if(!isValidEmailAddress){
@@ -278,6 +303,7 @@ $element.siblings('.error-message').fadeIn(350);
 });
 }
 //for testimonials slider
+// Spelling!!! You have testimonials spelled correctly in several places and incorrectly in many others
 function filltestimoialss(){
     
     testimoialsindex = (testimoialsindex==testimoialss.length) ? 0 : testimoialsindex; //to reset if arrived at array length 
@@ -289,6 +315,7 @@ function filltestimoialss(){
 $(document).ready(function(){
      content = $('.testimonials-content');
    // each section is an array with element and a boolean that we will use to make sure each section is displayed only once
+   // This looks like a good place to use an object instead of an array
     about = [$("#about")];
     about.push(true);
     skills = [$("#about .row:nth-of-type(2)")];
