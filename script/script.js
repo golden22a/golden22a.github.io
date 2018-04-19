@@ -10,7 +10,7 @@ var testimoialsindex = 0 ; //testimonials index
 
 // setting for background effetcs //
 const colors = ["#3CC157", "#2AA7FF", "#D2C1E8", "#FCBC0F", "#F85F36"];
-const numBalls = 200;
+var numBalls;
 const balls = [];
 var navbar;
 var navbarinit;
@@ -33,7 +33,7 @@ for (var i = 0; i < numBalls; i++) {
   ball.style.transform = `scale(${Math.random()})`; //random scales so a ball doesnt stick in another
    ball.style.height = `${Math.random()*0.5}em`;
      ball.style.width = ball.style.height;
-  
+
   balls.push(ball);
   header.append(ball);
 }
@@ -44,7 +44,7 @@ balls.forEach(function(el, i,) {
     x: Math.random() * (i % 2 === 0 ? -11 : 11), //go right or left depending on index
     y: Math.random() * 12
   };
-   
+
   var anim = el.animate(
     [
       { transform: "translate(0, 0)" }, //start
@@ -57,7 +57,7 @@ balls.forEach(function(el, i,) {
       easing: "ease-in-out"
     }
   );
-        
+
 });
 }
 function headerButton(){
@@ -67,42 +67,42 @@ function headerButton(){
          //enpty and animatie button
          header.find('button').text('');
     header.find('button').animate({width:'30%',
-    borderTopLeftRadius: 100, 
-    borderTopRightRadius: 100, 
-    borderBottomLeftRadius: 100, 
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    borderBottomLeftRadius: 100,
     borderBottomRightRadius: 100,
    fontSize:'1.2em',
-    },700,function(){  
+    },700,function(){
 header.find('button').append('<i class="fas fa-arrow-down" style="color:red;padding-right:0.4em"></i>');  //add the arrow at the end of animation
     });
-        
-    
+
+
 });
     header.on("mouseleave",function(){
          header.find('i').remove();//remove arrow
       header.find('button').animate({width:'100%',
-    borderTopLeftRadius: 0, 
-    borderTopRightRadius: 0, 
-    borderBottomLeftRadius: 0, 
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-   
+
     },700,function(){
-        
+
           header.find('button').text('View My Work');//add text at the end of animation
     });
-       
-     
+
+
 });
     header.find('button').on("click",function(e){
       header.find('i').remove();
      header.find('button').animate({width:'100%',
-    borderTopLeftRadius: 0, 
-    borderTopRightRadius: 0, 
-    borderBottomLeftRadius: 0, 
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-   
+
     },700,function(){
-        
+
            header.find('button').text('View My Work');
     });
          linkScroll('#about'); // scroll to the about section
@@ -145,19 +145,19 @@ function displayContent(position){
       if( position >= skills[0].offset().top/1.2){
           if(skills[1]){
         skills[0].removeClass('hidden');
-            skillBar();  
+            skillBar();
          skills[1] = false;
           }
-         
+
     }  if(position >= contact[0].offset().top/1.2){
         if(contact[1]){
         contact[0].removeClass('hidden');
             contact[1] = false;
         }
          selected("#contact");
-    } 
+    }
 }
-//bar load 
+//bar load
 function skillBar(){
    var el = $('.bar');
     el.each(function(){
@@ -174,10 +174,10 @@ function skillBar(){
             //chaming text while filling skill bar
             current.width((width*0.8)+'%');
            current.text((width)+'%');
-            
+
         }
 
-}  
+}
 
         }
     });
@@ -189,7 +189,7 @@ function fixNav(position){
 
   } else{
     navbar.removeClass("fixed");
-  
+
   }
 
 }
@@ -216,16 +216,16 @@ function imagetimer(){
 function valideform(){
     $('form input,form textarea').on("focus",function(){
        $(this).siblings('.error-message').hide();
-   $(this).attr('class','active'); 
+   $(this).attr('class','active');
 });
      $('input, textarea').on("blur",function(){
         if($(this).val()==""){
-           $(this).removeClass('active'); 
+           $(this).removeClass('active');
         }
-         
+
     });
     $("form").on("submit",function(e){
-        
+
     var toSubmit=true;
     e.preventDefault();
         var email=$(this).serialize().split('&');
@@ -263,7 +263,7 @@ $element.siblings('.error-message').fadeIn(350);
             'email': 'khaldiabdelhalim1894@gmail.com',
             'type': 'to'
           },
-          
+
         ],
       'autotext': 'true',
       'subject': `${message[0]} object:${message[2]} `,
@@ -273,37 +273,39 @@ $element.siblings('.error-message').fadeIn(350);
  }).done(function(response) {
    console.log("Form submitted");
  });
-        
+
     }
 });
 }
 //for testimonials slider
 function filltestimoialss(){
-    
-    testimoialsindex = (testimoialsindex==testimoialss.length) ? 0 : testimoialsindex; //to reset if arrived at array length 
+
+    testimoialsindex = (testimoialsindex==testimoialss.length) ? 0 : testimoialsindex; //to reset if arrived at array length
    content.empty();
     content.append(`<p>${testimoialss[testimoialsindex]}</p>`).hide();
     content.fadeIn(1200);
     testimoialsindex++;
 }
 $(document).ready(function(){
+  var ww = $(window).width();
+ww <= 800 ? numBalls= ww/13 : numBalls=100; 
      content = $('.testimonials-content');
    // each section is an array with element and a boolean that we will use to make sure each section is displayed only once
     about = [$("#about")];
     about.push(true);
     skills = [$("#about .row:nth-of-type(2)")];
     skills.push(true);
-    projects = [$("#projects")]; 
+    projects = [$("#projects")];
     projects.push(true);
     contact = [$("#contact")];
     contact.push(true);
     ///
     navbar = $('.navbar');
-    navbarinit = navbar.offset().top;//get initial position 
+    navbarinit = navbar.offset().top;//get initial position
    backgroundEffect(); //making the backgournd effect
 headerButton(); //initialising lsitener for header button control
     valideform();//initialising linsten for form valdiaiton
-    
+
     //navbar click interaction
     $('#top a').on("click",function(e){
          var thisTarget = $(this).attr('href');
@@ -318,7 +320,7 @@ headerButton(); //initialising lsitener for header button control
                setTimeout(function(){ navbaropen=true;},500);
                 }else
                     {
-                    $('#top a').removeClass('responsive'); 
+                    $('#top a').removeClass('responsive');
                         $('#top').removeClass('high');
                     }
         }
@@ -327,7 +329,7 @@ headerButton(); //initialising lsitener for header button control
 $(document).scroll(function() {
   var y = $(this).scrollTop();
     displayContent(y); // to display content
-  fixNav(y); // to fix the top navbar 
+  fixNav(y); // to fix the top navbar
 });
     //to change the project slide when clicking on the small circles
     $('.project-footer i').on("click",function(){
@@ -335,11 +337,11 @@ $(document).scroll(function() {
        moveImage($(this).attr('data-slide'));
         setTimeout(3000);
         imageinterval=setInterval(imagetimer,3000);
-        
+
     });
     //modal
     $('.slide img').on("click",function(){
-      
+
         $('.modal-content img').attr('src',$(this).attr('src'));
         $('.modal').css({'display':'block'});
         setTimeout(function(){ modelopen=true;},1000);//wait 1s to adjust control variable so it wont be a  conflict the widnow listener
@@ -353,9 +355,9 @@ $(document).scroll(function() {
             $('#top a').removeClass('responsive');
               $('#top').removeClass('high');
         navbaropen=false;
-            
+
         }
         });
-    
+
 var testimoialsinterval=setInterval(filltestimoialss,5000);
 });
