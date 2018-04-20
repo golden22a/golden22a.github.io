@@ -7,7 +7,7 @@ body{
 }
 /*Header section*/
 header{
-    background: black;  
+    background: black;
 height:100%;
 letter-spacing: 0.2em;
     font-size: 1.1em;
@@ -19,7 +19,7 @@ header .container{
 }
 #me{
     color:red;
-}   
+}
 .headerButtonContainer{
     width:20%;
     margin:0 auto;
@@ -37,7 +37,7 @@ header .container{
     width:100%;
     margin:0 auto;
     font-size:1.2em;
-    
+
 }
 .headerButtonContainer1{
     display:none;
@@ -59,8 +59,8 @@ header i {
      background-position: 50% 50%;
 background-size:  0% 100% ;
     transition: background-size 0.6s linear;
-   
-    
+
+
 }
 
 #top a{
@@ -75,13 +75,15 @@ background-size:  0% 100% ;
   opacity: 0.7;
     width:0.3em;
     height:0.3em;
-    
+
 }
 /*generl */
 h2{
-    text-align:center;
+  text-align: center;
     font-size:1.5em;
-    margin-bottom: 1em;
+}
+#about h2{
+    margin-left: -4em;
 }
 .container {
     width:80%;
@@ -104,13 +106,13 @@ h2{
 background-color:red;
 border: 1px solid red;
     padding:0.15em;
-    
+
 }
 /*Sections*/
 .row{
     width:90%;
     display: flex;
-    padding: 2em;
+
 }
 div{
 width:100%;
@@ -118,11 +120,12 @@ width:100%;
 #about {
     text-align:center;
     font-size:1.618em;
-    
+
+
 }
-#about i{   
+#about i{
     font-size:2.5em;
-   
+
 }
 #about h4{
     font-size:1em;
@@ -134,12 +137,38 @@ width:100%;
 .skill-container{
     width:100%;
     margin-left:2em;
-    display:flex;
-    background-color: #a3a3c2;
-    margin:2%;
+    margin:1em;
     border:0;
+    text-align: center;
 }
+.skill-container h4 {
+  text-align: left;
+  font-size: 1.4em;
+}
+.skill-container img{
+  width:80px;
+  height:80px;
+  margin-right: 1em;
+}
+#basic{
+  width:240px;
+  height:100px;
+}
+.skills{
+  display:flex;
+   flex-wrap: wrap;
+   margin:1.618em 0;
 
+}
+#skillsContent{
+  width:60%;
+  margin:auto;
+
+}
+#skillsContent h3{
+  text-align: center;
+  font-size:3em;
+}
 #about button{
     width:20%;
     background-color:#004d4d;
@@ -157,15 +186,62 @@ margin:0 0 1em 0;
     width:0% ;
   background-color: #009999;
     text-align:right;
-  color: black;  
+  color: black;
 }
 .Project-container{
-    height:50%;
-    width:50%;
+    height:100%;
+    width:100%;
     margin:0 auto;
     margin-bottom: 0px;
-     overflow: hidden;
-    
+    overflow: hidden;
+    padding: 1em;
+
+
+}
+
+
+.blocks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:100%;
+  margin: 2em;
+
+}
+
+.block {
+  position: relative;
+  width: 28%;
+  height: 325px;
+  max-height: 325px;
+  margin-right: 1em;
+  overflow: hidden;
+  margin:1em;
+}
+.block:hover .block__body {
+  position: absolute;
+  top: 0;
+  background: #2980b9;
+  color: #fff;
+  height: 100%;
+  transition: top .5s;
+}
+.block:hover .block__body h3 {
+  color: #fff;
+}
+
+.block__body {
+  padding: 1em;
+  top: 100%;
+}
+.block img{
+  width:100%;
+  height:100%;
+
+}
+#tradeswap{
+  width:50%;
+  margin:0 6em;
 }
 .slides{
     width:150vw;
@@ -173,13 +249,13 @@ margin:0 0 1em 0;
     display:block;
     padding:0;
     margin:0;
-    
-    
+
+
 }
 .slide{
     float:left;
     list-style-type: none;
- 
+
 }
 .slide img{
     width:50vw;
@@ -223,7 +299,7 @@ margin:0 0 1em 0;
     width:100vw;
     height:100vh;
     background-color: rgba(0,0,0,0.4);
-        
+
 }
 .modal-content{
     margin:10% auto;
@@ -245,7 +321,7 @@ margin:0 0 1em 0;
 }
 /*footer*/
 form{
-    
+
     display:flex;
     flex-direction: column;
     padding:1em;
@@ -287,7 +363,7 @@ footer nav a {
     text-decoration: none;
     color:black;
     font-size: 2em;
-    
+
 }
 .nav-container{
     background-color: darkslategray;    /*footer navbar*/
@@ -296,7 +372,7 @@ footer nav a {
 
 .focused{
     border:2px solid green;
-    
+
 }
 input[type=submit]{
     color:red;
@@ -306,10 +382,10 @@ input[type=submit]{
 }
 .danger {
     border-color:red;
-}   
+}
 .active{
     border-color:green;
-    
+
 }
 
 /*Key frames*/
@@ -340,14 +416,14 @@ input[type=submit]{
     }
     100%{
         transform:translate(0);
-    } 
+    }
 }
 
 @keyframes bounceform{
    0% {
      transform:scale(0.5,0.5);
   }
-  
+
 	40% {
      transform:scale(1.4,1.4);
   }
@@ -360,7 +436,7 @@ input[type=submit]{
     100%{
         transform:scale(1,1);
     }
-} 
+}
 #contact.hidden{
     transform: scale(0.2,0.2);
 }
@@ -390,30 +466,28 @@ input[type=submit]{
     .headerButton i{
         color:red;
         margin:0 auto;
-        
+
     }
     .row:nth-of-type(2){
-     flex-direction: column;   
+     flex-direction: column;
     }
     .testimonials p{
         font-size: 0.6em;
     }
     #about .row{
-        margin-left:-5%; 
+        margin-left:-5%;
     }
     .bio{
         margin-left:-20%;
         text-align: center;
-    
+
     }
-    .skills{
-        margin-left:-10%;
-    }
+
     .project-footer{
         width:30%;
     margin:0 auto;
     }
-    
+
 }
 @media screen and (max-width:740px){
        .headerButtonContainer{
@@ -422,8 +496,8 @@ input[type=submit]{
     margin:0 auto;
 }
     .row{
-        
-        flex-direction: column;    
+
+        flex-direction: column;
     }
     .navbar a:not(:last-child){
         display:none;
@@ -434,9 +508,9 @@ input[type=submit]{
     .hamburger{
         position:absolute;
         display:block;
-        right:0;  
+        right:0;
         float: right;
-        
+
     }
     .fixed .hamburger{
         top:0;
@@ -445,31 +519,27 @@ input[type=submit]{
         height:20%;
     }
      #top.fixed .responsive {
-   
+
     float: none;
     display: block;
     text-align: left;
   }
 
-    
+
     a.selected{
         border: 1px solid red;
         background-color: red;
     }
     #contact input,#contact textarea,.form-container{
         width:90%;
-        
+
     }
     input[type=submit]{
     color:red;
     height:4em;
     margin-left:2%;
 }
-    
-    
-    
+
+
+
 }
-
-
-
-

@@ -134,7 +134,7 @@ function displayContent(position){
         $('#top a').removeClass('responsive');
           $('#top').removeClass('high');
         navbaropen = false;
-    }  if (position >= projects[0].offset().top/1.2){
+    }  if (position >= projects[0].offset().top/1.7){
        if(projects[1]){
          projects[0].removeClass('hidden');
                imageinterval=setInterval(imagetimer,3000);
@@ -288,12 +288,12 @@ function filltestimoialss(){
 }
 $(document).ready(function(){
   var ww = $(window).width();
-ww <= 800 ? numBalls= ww/13 : numBalls=100; 
+ww <= 800 ? numBalls= ww/13 : numBalls=100;
      content = $('.testimonials-content');
    // each section is an array with element and a boolean that we will use to make sure each section is displayed only once
     about = [$("#about")];
     about.push(true);
-    skills = [$("#about .row:nth-of-type(2)")];
+    skills = [$("#about .row")];
     skills.push(true);
     projects = [$("#projects")];
     projects.push(true);
