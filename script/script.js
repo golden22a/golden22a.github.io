@@ -251,28 +251,14 @@ $element.siblings('.error-message').fadeIn(350);
 			$element.siblings('.error-message').hide();
         });
     if(toSubmit){
-       $.ajax({
-  type: 'POST',
-  url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-  data: {
-    'key': '7jNbUI2oJENL3bvEO0GZuw',
-    'message': {
-      'from_email': `${message[1]}`,
-      'to': [
-          {
-            'email': 'khaldiabdelhalim1894@gmail.com',
-            'type': 'to'
-          },
+      Email.send(email,
+  "contact@abdelhalimkhaldi.com",
+    $('form input').val(),
+  $('form textarea').val(),
+  {token: "82004c3c-9ea0-4e0f-b1d8-183987337429",
+  callback:function done(message){alert('sent')}}
+);
 
-        ],
-      'autotext': 'true',
-      'subject': `${message[0]} object:${message[2]} `,
-      'html': `${message[3]} `
-    }
-  }
- }).done(function(response) {
-   console.log("Form submitted");
- });
 
     }
 });
@@ -331,33 +317,7 @@ $(document).scroll(function() {
     displayContent(y); // to display content
   fixNav(y); // to fix the top navbar
 });
-    //to change the project slide when clicking on the small circles
-    $('.project-footer i').on("click",function(){
-        clearInterval(imageinterval);
-       moveImage($(this).attr('data-slide'));
-        setTimeout(3000);
-        imageinterval=setInterval(imagetimer,3000);
 
-    });
-    //modal
-    $('.slide img').on("click",function(){
 
-        $('.modal-content img').attr('src',$(this).attr('src'));
-        $('.modal').css({'display':'block'});
-        setTimeout(function(){ modelopen=true;},1000);//wait 1s to adjust control variable so it wont be a  conflict the widnow listener
-    });
-    $(window).on('click',function(){
-        if(modelopen){
-            $('.modal').css({'display':'none'});
-            modelopen=false;
-        }
-        if(navbaropen){
-            $('#top a').removeClass('responsive');
-              $('#top').removeClass('high');
-        navbaropen=false;
 
-        }
-        });
-
-var testimoialsinterval=setInterval(filltestimoialss,5000);
 });
