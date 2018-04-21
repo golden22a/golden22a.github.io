@@ -279,7 +279,7 @@ ww <= 800 ? numBalls= ww/13 : numBalls=100;
    // each section is an array with element and a boolean that we will use to make sure each section is displayed only once
     about = [$("#about")];
     about.push(true);
-    skills = [$("#about .row")];
+    skills = [$("#skillsContent")];
     skills.push(true);
     projects = [$("#projects")];
     projects.push(true);
