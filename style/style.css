@@ -357,11 +357,19 @@ form{
 .form-container{
     font-size:2em;
     padding:3em;
-    display: flex;
     margin:0 auto;
 
+}
+.contact {
+  display: flex;
+  flex-wrap: wrap;
 
-
+}
+.contact div {
+  width:30%;
+}
+#linkedin{
+  width:20%;
 }
 
 .form-container a {
@@ -571,6 +579,15 @@ input[type=submit]{
   width:90%;
   margin:1em 1em;
 }
-
+.contact{
+  flex-direction: column;
+}
+.contact  div {
+  width:100%;
+  padding: 0.5em;
+}
+#linkedin{
+  width:100%;
+}
 
 }
