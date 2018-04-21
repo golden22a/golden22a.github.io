@@ -134,7 +134,7 @@ function displayContent(position){
         $('#top a').removeClass('responsive');
           $('#top').removeClass('high');
         navbaropen = false;
-    }  if (position >= projects[0].offset().top/1.7){
+    }  if (position >= projects[0].offset().top/1.4){
        if(projects[1]){
          projects[0].removeClass('hidden');
            projects[1] = false;
@@ -176,6 +176,12 @@ function selected(target){
 
 
 $(document).ready(function(){
+  var userAgent = window.navigator.userAgent;
+  console.log(userAgent);
+
+
+
+
   var ww = $(window).width();
 ww <= 800 ? numBalls= ww/13 : numBalls=100;
      content = $('.testimonials-content');
@@ -190,17 +196,16 @@ ww <= 800 ? numBalls= ww/13 : numBalls=100;
     contact.push(true);
     ///
     navbar = $('.navbar');
-    navbarinit = navbar.offset().top;//get initial position
-   backgroundEffect(); //making the backgournd effect
-headerButton(); //initialising lsitener for header button control
-
-    //navbar click interaction
+    navbarinit = navbar.offset().top;
     $('#top a').on("click",function(e){
          var thisTarget = $(this).attr('href');
          e.preventDefault();
         if(thisTarget!='#'){
-        thisTarget = (thisTarget=='#contact' ? '#precontact' :thisTarget);
+        thisTarget = (thisTarget=='#contact' ? '#contact' :thisTarget);
     linkScroll(thisTarget);
+    $('#top a').removeClass('responsive');
+        $('#top').removeClass('high');
+          navbaropen=false;
         }else{
             if(!navbaropen){
         $('#top.fixed a').addClass('responsive');
@@ -210,9 +215,19 @@ headerButton(); //initialising lsitener for header button control
                     {
                     $('#top a').removeClass('responsive');
                         $('#top').removeClass('high');
+                        navbaropen=false;
                     }
         }
         });
+    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+      console.log('heere');
+      $('.hidden').removeClass('hidden');
+        navbar.addClass('fixed');
+    }else{//get initial position
+   backgroundEffect(); //making the backgournd effect
+headerButton(); //initialising lsitener for header button control
+
+
     //scroll listener
 $(document).scroll(function() {
   var y = $(this).scrollTop();
@@ -221,5 +236,5 @@ $(document).scroll(function() {
 });
 
 
-
+}
 });
