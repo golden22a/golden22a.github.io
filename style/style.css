@@ -651,10 +651,13 @@ input[type=submit]{
 
 }
 @media screen and (max-width:740px){
-       .headerButtonContainer{
-    width:35%;
-    height: 80%;
+       .headerButtonContainer1{
+    width:100%;
+    height: 100%;
     margin:0 auto;
+}
+.headerButton{
+  width:20%;
 }
     .row{
 
