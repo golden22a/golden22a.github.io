@@ -4,7 +4,6 @@ body{
     margin:0;
     font-family: 'Barlow Condensed';
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
 }
 /*Header section*/
 header{
@@ -707,19 +706,34 @@ input[type=submit]{
     height:4em;
     margin-left:2%;
 }
+.blocks{
+  margin:0 auto;
+  font-size: 0.9em;
+}
 .block {
-  width:90%;
+  width:100%;
   margin:1em 1em;
+}
+#tradeswap{
+  margin-left: 4em;
+}
+#contact{
+  padding: 0;
+  font-size: 1.5em;
 }
 .contact{
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+          margin:0;
+          padding:0;
+          width:100%;
 }
 .contact  div {
   width:100%;
-  padding: 0.5em;
+  padding:1em;
+
 }
 #linkedin{
   width:100%;
