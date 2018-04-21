@@ -141,7 +141,7 @@ function displayContent(position){
        }
         selected("#projects");
     }
-      if( position >= skills[0].offset().top/1){
+      if( position >= skills[0].offset().top/1.15){
           if(skills[1]){
         skills[0].removeClass('hidden');
          skills[1] = false;
