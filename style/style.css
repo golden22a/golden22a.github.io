@@ -4,6 +4,8 @@ body{
     margin:0;
     font-family: 'Barlow Condensed';
     overflow-x: hidden;
+    overflow-y: scroll;
+-webkit-overflow-scrolling: touch;
 }
 /*Header section*/
 header{
