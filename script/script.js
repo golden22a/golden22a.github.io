@@ -137,15 +137,13 @@ function displayContent(position){
     }  if (position >= projects[0].offset().top/1.7){
        if(projects[1]){
          projects[0].removeClass('hidden');
-               imageinterval=setInterval(imagetimer,3000);
            projects[1] = false;
        }
         selected("#projects");
     }
-      if( position >= skills[0].offset().top/1.2){
+      if( position >= skills[0].offset().top/1){
           if(skills[1]){
         skills[0].removeClass('hidden');
-            skillBar();
          skills[1] = false;
           }
 
@@ -157,31 +155,7 @@ function displayContent(position){
          selected("#contact");
     }
 }
-//bar load
-function skillBar(){
-   var el = $('.bar');
-    el.each(function(){
-        var width=10;
-        var current=$(this);
-       var length=parseInt(current.attr('data-skill'));
-        if(length>0){
-     var interval=setInterval(progress,16.67); //60 fps
-        function progress(){
-        if(width>=length)
-            clearInterval(interval); //stop interval
-        else{
-            width++;
-            //chaming text while filling skill bar
-            current.width((width*0.8)+'%');
-           current.text((width)+'%');
 
-        }
-
-}
-
-        }
-    });
-}
 //fix top navigation bar
 function fixNav(position){
     if (position >= navbarinit) {
@@ -199,79 +173,8 @@ function selected(target){
     navbaropen = false;// update control variable to false
     $(`[href='${target}']`).addClass('selected');//add class selected to the link clicked
 }
-//for project slider
-function moveImage(action){
-    imageindex = action; //update the index
-    $('.slides').animate({'margin-left':`-${images[action]}vw`});
-    $('.project-footer i').attr('class','far fa-circle');
-        $(`.project-footer i[data-slide=${action}]`).attr('class','fas fa-circle');
-
-}
-function imagetimer(){
-    imageindex++;
-    imageindex= (imageindex == 3) ? 0:imageindex;
-    moveImage(imageindex);
-}
-//email validation
-function valideform(){
-    $('form input,form textarea').on("focus",function(){
-       $(this).siblings('.error-message').hide();
-   $(this).attr('class','active');
-});
-     $('input, textarea').on("blur",function(){
-        if($(this).val()==""){
-           $(this).removeClass('active');
-        }
-
-    });
-    $("form").on("submit",function(e){
-
-    var toSubmit=true;
-    e.preventDefault();
-        var email=$(this).serialize().split('&');
-    $('form input,form textarea').each(function(){
-    var $element=$(this);
-    if($element.val()==''){
-        $element.attr('class','danger');
-$element.siblings('.error-message').fadeIn(350);
-        toSubmit=false;
-        return;
-    }
-        if($element.attr('type')=='email'){
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            var isValidEmailAddress = re.test($element.val());
-        if(!isValidEmailAddress){
-            $element.attr('class','danger');
- $element.siblings('.error-message').fadeIn(350);
-            toSubmit = false;
-            return;
-        }
-        }
-        $element.removeClass('error');
-			$element.siblings('.error-message').hide();
-        });
-    if(toSubmit){
-      Email.send(email,
-  "contact@abdelhalimkhaldi.com",
-    $('form input').val(),
-  $('form textarea').val(),
-  {token: "82004c3c-9ea0-4e0f-b1d8-183987337429",
-  callback:function done(message){alert('sent')}}
-);
 
 
-    }
-});
-}
-//for testimonials slider
-function filltestimoialss(){
-
-    testimoialsindex = (testimoialsindex==testimoialss.length) ? 0 : testimoialsindex; //to reset if arrived at array length
-   content.empty();
-    content.append(`<p>${testimoialss[testimoialsindex]}</p>`).hide();
-    content.fadeIn(1200);
-    testimoialsindex++;
-}
 $(document).ready(function(){
   var ww = $(window).width();
 ww <= 800 ? numBalls= ww/13 : numBalls=100;
@@ -290,7 +193,6 @@ ww <= 800 ? numBalls= ww/13 : numBalls=100;
     navbarinit = navbar.offset().top;//get initial position
    backgroundEffect(); //making the backgournd effect
 headerButton(); //initialising lsitener for header button control
-    valideform();//initialising linsten for form valdiaiton
 
     //navbar click interaction
     $('#top a').on("click",function(e){

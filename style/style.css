@@ -473,6 +473,10 @@ input[type=submit]{
 #contact.hidden{
     transform: scale(0.2,0.2);
 }
+#skillsContent.hidden{
+  transform: scale(2,2);
+
+}
 
 
 .hamburger{
