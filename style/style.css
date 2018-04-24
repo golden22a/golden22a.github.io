@@ -396,7 +396,7 @@ form{
     padding:1em;
 }
 .form-container{
-    font-size:2em;
+    font-size:1.75em;
     padding:3em;
     margin:0 auto;
 
@@ -605,8 +605,23 @@ input[type=submit]{
 .hamburger{
     display:none;
 }
+@media screen and (max-width: 1205px) {
+  .headerButtonContainer{
+  width:25%;
+  margin:0 auto;
+}
+  .blocks{
+    margin:0 auto;
+    font-size: 0.93em;
+  }
+  .contact div {
+    width:30%;
+    font-size: 0.7em;
+  }
 
-@media screen and (max-width: 840px) {
+
+}
+@media screen and (max-width: 950px) {
     .headerButtonContainer{
     width:40%;
     margin:0 auto;
