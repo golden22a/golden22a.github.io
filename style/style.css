@@ -7,6 +7,9 @@ body{
     overflow-y: scroll;
 -webkit-overflow-scrolling: touch;
 }
+button {
+  cursor:pointer;
+}
 /*Header section*/
 header{
     background: black;
