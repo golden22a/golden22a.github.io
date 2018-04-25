@@ -224,19 +224,22 @@ margin:0 0 1em 0;
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width:100%;
-  margin: 2em;
+  width:80%;
+  margin: auto;
+
 
 }
 
 .block {
   position: relative;
-  width: 28%;
+  width: 45%;
   height: 325px;
   max-height: 325px;
-  margin-right: 1em;
+  margin: 1em 1em;
   overflow: hidden;
-  margin:1em;
+  font-size: 1em;
+
+
 }
 .block:hover .block__body {
   position: absolute;
@@ -291,16 +294,13 @@ margin:0 0 1em 0;
 }
 .block img{
   width:100%;
-  height:100%;
+  height: 70%;
+  padding: 2.5em 0;
+
 
 }
-#tradeswap{
-  width:50%;
-  margin:0 6em;
-}
-#brilog{
-  font-size: 0.86em;
-}
+
+
 .slides{
     width:150vw;
     height:100%;
@@ -605,20 +605,28 @@ input[type=submit]{
 .hamburger{
     display:none;
 }
-@media screen and (max-width: 1205px) {
+@media screen and (max-width: 1366px) {
   .headerButtonContainer{
   width:25%;
   margin:0 auto;
 }
   .blocks{
-    margin:0 auto;
-    font-size: 0.93em;
-  }
-  .contact div {
-    width:30%;
-    font-size: 0.7em;
+    font-size: 1em;
   }
 
+  .contact div {
+    width:33%;
+    font-size: 0.7em;
+  }
+  #brilog img {
+    margin-bottom: 3em;
+  }
+  #brilog .block__body{
+    font-size:0.8em;
+  }
+  #wayfarer .block__body{
+    font-size:0.84em;
+  }
 
 }
 @media screen and (max-width: 950px) {
@@ -765,17 +773,19 @@ input[type=submit]{
     height:4em;
     margin-left:2%;
 }
-.blocks{
-  margin:0 auto;
-  font-size: 0.9em;
-}
-.block {
+.blocks , .project-container{
   width:100%;
-  margin:1em 1em;
+  margin:0;
+  padding:0;
 }
-#tradeswap{
-  margin-left: 4em;
+.block{
+  width:100%;
+  margin:0.5em 0;
 }
+.blocks img {
+  margin-bottom: 1em;
+}
+
 #contact{
   padding: 0;
   font-size: 1.5em;
