@@ -223,6 +223,13 @@ ww <= 800 ? numBalls= ww/13 : numBalls=100;
       console.log('heere');
       $('.hidden').removeClass('hidden');
         navbar.addClass('fixed');
+        $('.headerButtonContainer1').find('button').on("click",function(e){
+            linkScroll('#about');
+        });
+        $(document).scroll(function() {
+          var y = $(this).scrollTop();
+            displayContent(y); // to display content
+        });
     }else{//get initial position
    backgroundEffect(); //making the backgournd effect
 headerButton(); //initialising lsitener for header button control

@@ -611,16 +611,17 @@ input[type=submit]{
   margin:0 auto;
 }
   .blocks{
-    font-size: 1em;
+    font-size: 0.9em;
+  }
+  .blocks img {
+    margin-bottom: 1em;
   }
 
   .contact div {
     width:33%;
     font-size: 0.7em;
   }
-  #brilog img {
-    margin-bottom: 3em;
-  }
+
   #brilog .block__body{
     font-size:0.8em;
   }
