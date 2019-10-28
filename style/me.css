@@ -70,6 +70,7 @@ a span{
 #profile-details-ontainer{
     padding: 20px 45px 40px;
     box-shadow: 0 -5px 40px 7px rgba(0,0,0,0.08);
+    margin-bottom: 5em;
 }
 .profile-details-item{
     position: relative;
@@ -125,6 +126,9 @@ a span{
 @media screen and (max-width: 650px) {
     #card-header{
         padding-top: 0;
+    }
+    #profile-details-ontainer{
+        margin-bottom: 0;
     }
     #profile-container{
         box-shadow: none;
