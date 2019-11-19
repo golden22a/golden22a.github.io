@@ -352,49 +352,12 @@ margin:0 0 1em 0;
     -o-transition: all 1.2s ease;
     transition: all 1.2s ease;
 }
-.modal{
-    display: none;
-    position:fixed;
-    z-index: 20;
-    left:0;
-    top:0;
-    width:100vw;
-    height:100vh;
-    background-color: rgba(0,0,0,0.4);
-
-}
-.modal-content{
-    margin:10% auto;
-    width:70%;
-    height:70%;
-    padding:1.2em;
-}
-.modal-content img{
-   width:100%;
-    height: 100%;
-}
 
 
-.testimonials{
-    width:40%;
-    height:40%;
-    margin:10% auto;
-    font-size: 2em;
-}
+
+
 /*footer*/
-form{
 
-    display:-webkit-box;
-
-    display:-ms-flexbox;
-
-    display:flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    padding:1em;
-}
 .form-container{
     font-size:1.75em;
     padding:3em;
@@ -410,11 +373,11 @@ form{
 
 }
 .contact div {
-  width:30%;
+  width:25%;
 }
-#linkedin{
+/* #linkedin{
   width:20%;
-}
+} */
 
 .form-container a {
   text-decoration: none;
@@ -435,10 +398,7 @@ footer{
     background-color:#653485;
     color:white;
 }
-.error-message{
-    color:red;
-    display:none;
-}
+
 footer nav a {
     text-decoration: none;
     color:black;
@@ -450,23 +410,7 @@ footer nav a {
 }
 
 
-.focused{
-    border:2px solid green;
 
-}
-input[type=submit]{
-    color:red;
-    height:4em;
-    width:40%;
-    margin:0 auto;
-}
-.danger {
-    border-color:red;
-}
-.active{
-    border-color:green;
-
-}
 
 /*Key frames*/
 
@@ -618,8 +562,12 @@ input[type=submit]{
   }
 
   .contact div {
-    width:33%;
+    width:22%;
     font-size: 0.7em;
+  }
+  #email{
+    width:30%;
+ 
   }
 
   #brilog .block__body{
@@ -761,19 +709,7 @@ input[type=submit]{
   }
 
 
-    a.selected{
-        border: 1px solid red;
-        background-color: red;
-    }
-    #contact input,#contact textarea,.form-container{
-        width:90%;
-
-    }
-    input[type=submit]{
-    color:red;
-    height:4em;
-    margin-left:2%;
-}
+   
 .blocks , .project-container{
   width:100%;
   margin:0;

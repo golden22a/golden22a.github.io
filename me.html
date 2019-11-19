@@ -14,6 +14,11 @@
                  e.preventDefault();
                  window.location.href='vcard.vcf'   
             })
+            $('#resume').on('click',function(e){
+                 e.preventDefault();
+                 window.location.href='resume.pdf'   
+            })
+
         })
         </script>
     </head>
@@ -90,9 +95,13 @@
                         </div>
                         <div class="separator"></div>
                         <div class="profile-details-item" id="contact-download">
-                                <button type="button" class="btn btn-danger btn-lg col-md-12 col-11" id="download">
-                                        <span class="fas fa-id-card" aria-hidden="true"></span> Download vCard
-                                      </button>                                      
+                                <button type="button" class="btn btn-primary btn-lg col-md-12 col-11" id="resume">
+                                        <span class="fas fa-cloud-download-alt" aria-hidden="true"></span> Download Resume
+                                      </button>              
+                                      
+                                      <button type="button" class="btn btn-danger btn-lg col-md-12 col-11" id="download">
+                                            <span class="fas fa-id-card" aria-hidden="true"></span> Download vCard
+                                          </button>    
                         </div>
 
                 </div>
